@@ -3,13 +3,14 @@ import Image from 'next/image';
 import axios from 'axios';
 import { BsSearch } from 'react-icons/bs';
 import { useState } from 'react';
+import Weather from '../components/Weather';
 
 export default function Home() {
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=dubai&units=imperial&appid=${process.env.API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.API_KEY}`;
 
   const fetchWeather = (e) => {
     e.preventDefault();
@@ -43,9 +44,13 @@ export default function Home() {
 
       {/* Search */}
       <div className='relative flex justify-between items-center max-w-[500px] w-full m-auto pt-4 text-white z-10'>
-        <form className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'>
+        <form
+          onSubmit={fetchWeather}
+          className='flex justify-between items-center w-full m-auto p-3 bg-transparent border border-gray-300 text-white rounded-2xl'
+        >
           <div>
             <input
+              onChange={(e) => setCity(e.target.value)}
               className='bg-transparent border-none text-white focus:outline-none text-2xl'
               type='text'
               placeholder='Search city'
@@ -56,6 +61,9 @@ export default function Home() {
           </button>
         </form>
       </div>
+      {/* Weather */}
+
+      {weather.main && <Weather data={weather} />}
     </div>
   );
 }

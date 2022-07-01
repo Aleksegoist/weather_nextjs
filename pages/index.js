@@ -53,7 +53,7 @@ export default function Home() {
               onChange={(e) => setCity(e.target.value)}
               className='bg-transparent border-none text-white focus:outline-none text-2xl'
               type='text'
-              placeholder='Search city'
+              placeholder='Search city...'
             />
           </div>
           <button onClick={fetchWeather}>

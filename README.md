@@ -5,3 +5,5 @@
  - Tailwind CSS
  - Axios API Calls
  - https://openweathermap.org/api - OpenWeatherMap API
+
+![This is an image](/public/page_photo/1.jpg)

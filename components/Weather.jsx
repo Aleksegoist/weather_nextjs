@@ -33,7 +33,7 @@ const Weather = ({ data }) => {
           </div>
           <div>
             <p className='font-bold text-2xl'>
-              {data.wind.speed.toFixed(0)} MPH
+              {data.wind.speed.toFixed(0)} km/h
             </p>
             <p className='text-xl'>Winds</p>
           </div>
